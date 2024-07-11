@@ -64,8 +64,16 @@
             let words = trimmedInput.split(' ');
 
             words.map((word, i) => {
+                var c = null;
                 var w = word.split('');
+                if (w[w.length - 1] === '.' || w[w.length - 1] === ',') {
+                    c = w[w.length - 1];
+                    w.pop();
+                }
                 shuffle(w);
+                if (c) {
+                    w.push(c);
+                }
                 words[i] = w.join('');
             });
 
